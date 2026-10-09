@@ -15,9 +15,14 @@ export default function Login() {
     try {
       await signIn(form);
     } catch (err) {
-      if (err.response?.status === 401) {
-        setError(err.response.data.detail || "Invalid credentials.");
+      if (err.response) {
+        // The request was made and the server responded with a status code
+        setError(err.response.data.detail || `Server error: ${err.response.status}`);
+      } else if (err.request) {
+        // The request was made but no response was received (CORS or Network Error)
+        setError("Network error: Could not connect to the server.");
       } else {
+        // Something happened in setting up the request
         setError("Something went wrong. Please try again.");
       }
     } finally {
