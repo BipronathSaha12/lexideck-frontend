@@ -22,6 +22,10 @@ export default {
         box3: "#eab308",
         box4: "#84cc16",
         box5: "#10b981",
+      },
+      fontFamily: {
+        body: ['Inter', 'system-ui', 'sans-serif'],
+        mono: ['Fira Code', 'Courier New', 'monospace'],
       }
     },
   },

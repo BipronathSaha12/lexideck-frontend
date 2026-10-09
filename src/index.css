@@ -76,15 +76,15 @@
   }
 
   .btn-primary {
-    @apply bg-accent text-white hover:not-disabled:bg-accentHover;
+    @apply bg-accent text-white hover:enabled:bg-accentHover;
   }
 
   .btn-secondary {
-    @apply bg-bgTertiary text-textPrimary border border-borderColor hover:not-disabled:bg-bgSecondary hover:not-disabled:border-textSecondary;
+    @apply bg-bgTertiary text-textPrimary border border-borderColor hover:enabled:bg-bgSecondary hover:enabled:border-textSecondary;
   }
 
   .btn-danger {
-    @apply bg-transparent text-danger border border-danger hover:not-disabled:bg-danger hover:not-disabled:text-white;
+    @apply bg-transparent text-danger border border-danger hover:enabled:bg-danger hover:enabled:text-white;
   }
 
   .badge {
