@@ -80,7 +80,7 @@ export default function Dashboard() {
       {/* Stat Cards */}
       <div className="grid grid-cols-2 grid-cols-4" style={{ marginBottom: "2rem" }}>
         <div className="card" style={{ textAlign: "center" }}>
-          <div style={{ fontSize: "2rem", fontWeight: "bold", color: "var(--accent-color)" }}>{stats.due_now}</div>
+          <div style={{ fontSize: "2rem", fontWeight: "bold", color: "#60a5fa" }}>{stats.due_now}</div>
           <div style={{ color: "var(--text-secondary)", fontSize: "0.875rem" }}>Due now</div>
         </div>
         <div className="card" style={{ textAlign: "center" }}>
@@ -99,7 +99,7 @@ export default function Dashboard() {
 
       {/* Box Distribution */}
       <div className="card" style={{ marginBottom: "2rem" }}>
-        <h3 style={{ marginBottom: "1rem" }}>Where your cards sit</h3>
+        <h2 style={{ marginBottom: "1rem", fontSize: "1.25rem", fontWeight: "bold" }}>Where your cards sit</h2>
         {chartData.length > 0 ? (
           <div style={{ height: 300, width: "100%" }}>
             <ResponsiveContainer width="100%" height="100%">
@@ -130,7 +130,7 @@ export default function Dashboard() {
 
       {/* Heatmap (Study Activity) */}
       <div className="card" style={{ marginBottom: "2rem" }}>
-        <h3 style={{ marginBottom: "1rem" }}>Activity Heatmap (Last 30 Days)</h3>
+        <h2 style={{ marginBottom: "1rem", fontSize: "1.25rem", fontWeight: "bold" }}>Activity Heatmap (Last 30 Days)</h2>
         {stats.heatmap && (
           <div className="flex gap-1 flex-wrap">
             {Array.from({ length: 30 }).map((_, i) => {
@@ -158,7 +158,7 @@ export default function Dashboard() {
 
       {/* Ready to Study */}
       <div className="page-header" style={{ borderBottom: "none", marginBottom: "1rem" }}>
-        <h3>Ready to study</h3>
+        <h2 style={{ fontSize: "1.25rem", fontWeight: "bold" }}>Ready to study</h2>
         <Link to="/decks">See all decks &gt;</Link>
       </div>
       
