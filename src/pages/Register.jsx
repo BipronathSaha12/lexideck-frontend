@@ -30,7 +30,7 @@ export default function Register() {
   return (
     <div className="container" style={{ maxWidth: "500px", marginTop: "4rem" }}>
       <div className="card">
-        <h2 style={{ textAlign: "center", marginBottom: "1.5rem" }}>Register for LexiDeck</h2>
+        <h1 style={{ textAlign: "center", marginBottom: "1.5rem", fontSize: "1.5rem", fontWeight: "bold" }}>Register for LexiDeck</h1>
         {errors.detail && <span className="form-error" style={{ marginBottom: "1rem" }}>{errors.detail}</span>}
         <form onSubmit={handleSubmit}>
           <div className="form-group">

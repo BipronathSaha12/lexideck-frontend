@@ -66,7 +66,7 @@ export default function Dashboard() {
       <div className="page-header" style={{ alignItems: "flex-start", flexDirection: "column", gap: "1rem" }}>
         <div style={{ display: "flex", justifyContent: "space-between", width: "100%", alignItems: "center" }}>
           <div>
-            <h2 style={{ marginBottom: "0.25rem" }}>Dashboard</h2>
+            <h1 style={{ marginBottom: "0.25rem", fontSize: "1.5rem", fontWeight: "bold" }}>Dashboard</h1>
             {stats.user && (
               <div style={{ color: "var(--text-secondary)", fontSize: "0.875rem" }}>
                 Logged in as <strong>{stats.user.username}</strong> ({stats.user.email})

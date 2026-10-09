@@ -9,13 +9,13 @@
     --bg-tertiary: #334155;
     --text-primary: #f8fafc;
     --text-secondary: #94a3b8;
-    --accent-color: #3b82f6;
-    --accent-hover: #2563eb;
-    --danger-color: #ef4444;
+    --accent-color: #2563eb;
+    --accent-hover: #1d4ed8;
+    --danger-color: #f87171;
     --success-color: #10b981;
     --border-color: #334155;
     
-    --box-1: #ef4444;
+    --box-1: #f87171;
     --box-2: #f59e0b;
     --box-3: #eab308;
     --box-4: #84cc16;
@@ -84,7 +84,7 @@
   }
 
   .btn-danger {
-    @apply bg-transparent text-danger border border-danger hover:enabled:bg-danger hover:enabled:text-white;
+    @apply bg-transparent text-danger border border-danger hover:enabled:bg-[#b91c1c] hover:enabled:border-[#b91c1c] hover:enabled:text-white;
   }
 
   .badge {

@@ -35,7 +35,7 @@ export default function Login() {
   return (
     <div className="container" style={{ maxWidth: "500px", marginTop: "4rem" }}>
       <div className="card">
-        <h2 style={{ textAlign: "center", marginBottom: "1.5rem" }}>Login to LexiDeck</h2>
+        <h1 style={{ textAlign: "center", marginBottom: "1.5rem", fontSize: "1.5rem", fontWeight: "bold" }}>Login to LexiDeck</h1>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label className="form-label">Username</label>
