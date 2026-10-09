@@ -7,6 +7,9 @@ LexiDeck is a spaced-repetition flashcard application tailored for IELTS Academi
 ## Design Direction
 **Dark Developer** - The app utilizes near-black surfaces (`#0f172a`, `#1e293b`), a single bright accent color (`#2563eb` blue), monospace numbers, and compact modern grid layouts. The aesthetic aims to be clean, fast, distraction-free, and fully accessible for optimal study focus.
 
+## Mobile Responsiveness
+The entire UI is fluid and fully responsive down to **300px** screen widths. It features a toggleable hamburger menu for navigation on mobile devices, flex-wrapping grid systems for the deck cards, and perfectly scaled activity heatmaps, guaranteeing a seamless mobile study experience.
+
 ## Tech Stack
 - React 18
 - Vite
