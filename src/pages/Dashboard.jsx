@@ -171,7 +171,7 @@ export default function Dashboard() {
           {dueDecks.map(deck => (
             <div key={deck.id} className="card" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
               <div>
-                <h4 style={{ margin: "0 0 0.25rem 0" }}>{deck.title}</h4>
+                <h3 style={{ margin: "0 0 0.25rem 0", fontSize: "1.125rem" }}>{deck.title}</h3>
                 <div style={{ fontSize: "0.875rem", color: "var(--text-secondary)" }}>
                   {deck.subject} &bull; {deck.card_count} cards &bull; <span style={{ color: "var(--box-1)", fontWeight: "bold" }}>{deck.due_count} due</span>
                 </div>

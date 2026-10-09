@@ -29,7 +29,7 @@ function Navbar() {
         {user ? (
           <>
             <span style={{ marginRight: "1rem" }}>Welcome, {user}</span>
-            <button onClick={handleLogout} className="btn btn-danger" style={{ padding: "0.5rem 1rem", border: "1px solid #ef4444" }}>Logout</button>
+            <button onClick={handleLogout} className="btn btn-danger" style={{ padding: "0.5rem 1rem" }}>Logout</button>
           </>
         ) : (
           <Link to="/login" style={{ color: "white", textDecoration: "none" }}>Login</Link>
