@@ -63,9 +63,18 @@ export default function Dashboard() {
 
   return (
     <div className="container">
-      <div className="page-header">
-        <h2>Dashboard</h2>
-        <Link to="/decks/new" className="btn btn-primary">+ New Deck</Link>
+      <div className="page-header" style={{ alignItems: "flex-start", flexDirection: "column", gap: "1rem" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", width: "100%", alignItems: "center" }}>
+          <div>
+            <h2 style={{ marginBottom: "0.25rem" }}>Dashboard</h2>
+            {stats.user && (
+              <div style={{ color: "var(--text-secondary)", fontSize: "0.875rem" }}>
+                Logged in as <strong>{stats.user.username}</strong> ({stats.user.email})
+              </div>
+            )}
+          </div>
+          <Link to="/decks/new" className="btn btn-primary">+ New Deck</Link>
+        </div>
       </div>
 
       {/* Stat Cards */}

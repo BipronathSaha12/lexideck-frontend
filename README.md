@@ -13,7 +13,7 @@ LexiDeck is a spaced-repetition flashcard application tailored for IELTS Academi
 - React Router v6
 - Axios
 - Lucide React (Icons)
-- Vanilla CSS with CSS Variables
+- Tailwind CSS v3 (with custom design tokens)
 
 ## Setup Steps
 
@@ -32,9 +32,15 @@ LexiDeck is a spaced-repetition flashcard application tailored for IELTS Academi
    npm run dev
    ```
 
-## Demo Account
-- **Username**: `demo_admin`
-- **Password**: `demo1234`
+## Demo & Admin Accounts
+**1. Standard User (Pre-populated with 500 Cards)**
+- **Username**: `demo`
+- **Password**: `demo123`
+
+**2. Admin Superuser (For Django Admin Panel)**
+- **Username**: `admin`
+- **Password**: `admin123`
+
 *(Requires the backend server to be seeded with `python manage.py seed_demo` which generates 5 full decks and 500 cards spanning all 5 subject categories)*
 
 ## Route Table
@@ -56,9 +62,9 @@ LexiDeck is a spaced-repetition flashcard application tailored for IELTS Academi
 - **O-7**: Swagger / ReDoc with `drf-spectacular`
 - **O-8**: `python manage.py seed_demo` script for instant populated test data
 - **O-10**: Keyboard-driven study support (Space to flip, 1 for Missed, 2 for Got It, Escape to exit) + 3D CSS Card Flips
+- **O-11**: GitHub-style Study Activity Heatmap visualizing the last 30 days of study logs.
 - **O-13**: Filters in the URL with `useSearchParams` and 400ms debounce on search boxes
 
 ## What I would add with more time
 - Mobile swipe gestures for the study screen.
-- A heatmap (O-11) utilizing an external library like Recharts to visualize study streak consistency.
 - A bulk CSV import feature (O-2) for quickly adding extensive IELTS wordlists.
