@@ -35,7 +35,7 @@ LexiDeck is a spaced-repetition flashcard application tailored for IELTS Academi
 ## Demo Account
 - **Username**: `demo_admin`
 - **Password**: `demo1234`
-*(Requires the backend server to be seeded with `python manage.py seed_demo`)*
+*(Requires the backend server to be seeded with `python manage.py seed_demo` which generates 5 full decks and 500 cards spanning all 5 subject categories)*
 
 ## Route Table
 
