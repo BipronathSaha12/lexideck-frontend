@@ -196,10 +196,15 @@ export default function DeckDetail() {
           )}
 
           {totalPages > 1 && (
-            <div style={{ display: "flex", justifyContent: "center", gap: "1rem", marginTop: "2rem" }}>
-              <button className="btn btn-secondary" disabled={page <= 1} onClick={() => handlePageChange(page - 1)}>&lt; Prev</button>
-              <span style={{ padding: "0.75rem" }}>Page {page} of {totalPages}</span>
-              <button className="btn btn-secondary" disabled={page >= totalPages} onClick={() => handlePageChange(page + 1)}>Next &gt;</button>
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", marginTop: "2rem" }}>
+              <div style={{ marginBottom: "1rem", color: "var(--text-secondary)", fontSize: "0.875rem" }}>
+                Showing {((page - 1) * 10) + 1} to {Math.min(page * 10, cards.count)} of {cards.count} cards
+              </div>
+              <div style={{ display: "flex", gap: "1rem" }}>
+                <button className="btn btn-secondary" disabled={page <= 1} onClick={() => handlePageChange(page - 1)}>&lt; Prev</button>
+                <span style={{ padding: "0.75rem" }}>Page {page} of {totalPages}</span>
+                <button className="btn btn-secondary" disabled={page >= totalPages} onClick={() => handlePageChange(page + 1)}>Next &gt;</button>
+              </div>
             </div>
           )}
         </>
