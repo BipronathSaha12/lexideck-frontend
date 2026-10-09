@@ -5,7 +5,7 @@ LexiDeck is a spaced-repetition flashcard application tailored for IELTS Academi
 🔗 **Backend API Repository**: [lexideck-backend](https://github.com/BipronathSaha12/lexideck-backend)
 
 ## Design Direction
-**Dark Developer** - The app utilizes near-black surfaces (`#0f172a`, `#1e293b`), a single bright accent color (`#3b82f6` blue), monospace numbers, and compact modern grid layouts. The aesthetic aims to be clean, fast, and distraction-free for optimal study focus.
+**Dark Developer** - The app utilizes near-black surfaces (`#0f172a`, `#1e293b`), a single bright accent color (`#2563eb` blue), monospace numbers, and compact modern grid layouts. The aesthetic aims to be clean, fast, distraction-free, and fully accessible for optimal study focus.
 
 ## Tech Stack
 - React 18
@@ -13,7 +13,7 @@ LexiDeck is a spaced-repetition flashcard application tailored for IELTS Academi
 - React Router v6
 - Axios
 - Lucide React (Icons)
-- Tailwind CSS v3 (with custom design tokens)
+- Tailwind CSS v3 (with custom accessible design tokens)
 
 ## Setup Steps
 
@@ -64,6 +64,7 @@ LexiDeck is a spaced-repetition flashcard application tailored for IELTS Academi
 - **O-10**: Keyboard-driven study support (Space to flip, 1 for Missed, 2 for Got It, Escape to exit) + 3D CSS Card Flips
 - **O-11**: GitHub-style Study Activity Heatmap visualizing the last 30 days of study logs.
 - **O-13**: Filters in the URL with `useSearchParams` and 400ms debounce on search boxes
+- **Accessibility**: 100% Lighthouse/aXe WCAG 2.1 compliance (color contrast, semantic HTML, and correct heading hierarchies).
 
 ## What I would add with more time
 - Mobile swipe gestures for the study screen.
