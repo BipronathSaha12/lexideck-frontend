@@ -24,7 +24,7 @@ export default {
         box5: "#10b981",
       },
       fontFamily: {
-        body: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
         mono: ['Fira Code', 'Courier New', 'monospace'],
       }
     },

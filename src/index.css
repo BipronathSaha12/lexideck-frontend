@@ -26,7 +26,7 @@
   }
 
   body {
-    @apply m-0 p-0 bg-bgPrimary text-textPrimary font-body antialiased min-h-screen;
+    @apply m-0 p-0 bg-bgPrimary text-textPrimary font-sans antialiased min-h-screen;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -60,7 +60,7 @@
   }
 
   .form-control {
-    @apply w-full px-4 py-3 bg-bgTertiary border border-borderColor rounded-md text-textPrimary font-body text-base transition-all duration-200 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/30;
+    @apply w-full px-4 py-3 bg-bgTertiary border border-borderColor rounded-md text-textPrimary font-sans text-base transition-all duration-200 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/30;
   }
 
   textarea.form-control {
@@ -72,7 +72,7 @@
   }
 
   .btn {
-    @apply inline-flex items-center justify-center px-6 py-3 rounded-md font-semibold cursor-pointer border-none transition-all duration-200 font-body text-sm disabled:opacity-60 disabled:cursor-not-allowed;
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-md font-semibold cursor-pointer border-none transition-all duration-200 font-sans text-sm disabled:opacity-60 disabled:cursor-not-allowed;
   }
 
   .btn-primary {

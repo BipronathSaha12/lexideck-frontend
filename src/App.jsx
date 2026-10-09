@@ -20,7 +20,7 @@ function Navbar() {
   };
   
   return (
-    <div className="min-h-screen bg-bgPrimary text-textPrimary font-body">
+    <div className="min-h-screen bg-bgPrimary text-textPrimary font-sans">
       <nav className="flex justify-between items-center px-8 py-4 bg-bgSecondary border-b border-borderColor w-full flex-wrap gap-4 text-white">
       <div>
         <Link to="/" style={{ color: "white", textDecoration: "none", marginRight: "1rem", fontWeight: "bold" }}>IELTS LexiDeck</Link>
