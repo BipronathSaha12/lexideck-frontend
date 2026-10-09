@@ -91,11 +91,11 @@ export default function DeckForm() {
             {errors.description && <span className="form-error">{errors.description[0]}</span>}
           </div>
 
-          <div style={{ display: "flex", gap: "1rem" }}>
-            <button type="submit" className="btn btn-primary" disabled={saving}>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <button type="submit" className="btn btn-primary w-full sm:w-auto" disabled={saving}>
               {saving ? "Saving..." : "Save Deck"}
             </button>
-            <button type="button" className="btn btn-secondary" onClick={() => navigate(-1)} disabled={saving}>
+            <button type="button" className="btn btn-secondary w-full sm:w-auto" onClick={() => navigate(-1)} disabled={saving}>
               Cancel
             </button>
           </div>

@@ -63,22 +63,20 @@ export default function Dashboard() {
 
   return (
     <div className="container">
-      <div className="page-header" style={{ alignItems: "flex-start", flexDirection: "column", gap: "1rem" }}>
-        <div style={{ display: "flex", justifyContent: "space-between", width: "100%", alignItems: "center" }}>
-          <div>
-            <h1 style={{ marginBottom: "0.25rem", fontSize: "1.5rem", fontWeight: "bold" }}>Dashboard</h1>
-            {stats.user && (
-              <div style={{ color: "var(--text-secondary)", fontSize: "0.875rem" }}>
-                Logged in as <strong>{stats.user.username}</strong> ({stats.user.email})
-              </div>
-            )}
-          </div>
-          <Link to="/decks/new" className="btn btn-primary">+ New Deck</Link>
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 border-b border-borderColor pb-4 gap-4">
+        <div>
+          <h1 style={{ marginBottom: "0.25rem", fontSize: "1.5rem", fontWeight: "bold" }}>Dashboard</h1>
+          {stats.user && (
+            <div style={{ color: "var(--text-secondary)", fontSize: "0.875rem" }}>
+              Logged in as <strong>{stats.user.username}</strong> ({stats.user.email})
+            </div>
+          )}
         </div>
+        <Link to="/decks/new" className="btn btn-primary w-full md:w-auto text-center">+ New Deck</Link>
       </div>
 
       {/* Stat Cards */}
-      <div className="grid grid-cols-2 grid-cols-4" style={{ marginBottom: "2rem" }}>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4" style={{ marginBottom: "2rem" }}>
         <div className="card" style={{ textAlign: "center" }}>
           <div style={{ fontSize: "2rem", fontWeight: "bold", color: "#60a5fa" }}>{stats.due_now}</div>
           <div style={{ color: "var(--text-secondary)", fontSize: "0.875rem" }}>Due now</div>
@@ -157,8 +155,8 @@ export default function Dashboard() {
       </div>
 
       {/* Ready to Study */}
-      <div className="page-header" style={{ borderBottom: "none", marginBottom: "1rem" }}>
-        <h2 style={{ fontSize: "1.25rem", fontWeight: "bold" }}>Ready to study</h2>
+      <div className="flex justify-between items-center mb-4">
+        <h2 style={{ fontSize: "1.25rem", fontWeight: "bold", margin: 0 }}>Ready to study</h2>
         <Link to="/decks">See all decks &gt;</Link>
       </div>
       
@@ -167,16 +165,16 @@ export default function Dashboard() {
           You're all caught up! No cards due right now.
         </div>
       ) : (
-        <div className="grid grid-cols-1">
+        <div className="grid grid-cols-1 gap-4">
           {dueDecks.map(deck => (
-            <div key={deck.id} className="card" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <div key={deck.id} className="card flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
               <div>
                 <h3 style={{ margin: "0 0 0.25rem 0", fontSize: "1.125rem" }}>{deck.title}</h3>
                 <div style={{ fontSize: "0.875rem", color: "var(--text-secondary)" }}>
                   {deck.subject} &bull; {deck.card_count} cards &bull; <span style={{ color: "var(--box-1)", fontWeight: "bold" }}>{deck.due_count} due</span>
                 </div>
               </div>
-              <Link to={`/decks/${deck.id}/study`} className="btn btn-primary">Study</Link>
+              <Link to={`/decks/${deck.id}/study`} className="btn btn-primary w-full sm:w-auto text-center">Study</Link>
             </div>
           ))}
         </div>

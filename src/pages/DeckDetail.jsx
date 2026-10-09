@@ -112,21 +112,21 @@ export default function DeckDetail() {
 
   return (
     <div className="container">
-      <div className="page-header" style={{ alignItems: "flex-start", flexDirection: "column" }}>
-        <div style={{ display: "flex", justifyContent: "space-between", width: "100%", alignItems: "center" }}>
-          <h2>
+      <div className="flex flex-col gap-4 mb-8 border-b border-borderColor pb-4">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center w-full gap-4">
+          <h1 style={{ fontSize: "1.5rem", fontWeight: "bold", margin: 0 }}>
             <Link to="/decks" style={{ color: "var(--text-secondary)" }}>&lt; Decks / </Link>
             {deck.title}
-          </h2>
-          <div style={{ display: "flex", gap: "1rem" }}>
-            <Link to={`/decks/${id}/cards/new`} className="btn btn-secondary">+ Add Card</Link>
-            <Link to={`/decks/${id}/study`} className="btn btn-primary">Study {deck.due_count}</Link>
+          </h1>
+          <div className="flex flex-col sm:flex-row gap-2 w-full md:w-auto">
+            <Link to={`/decks/${id}/cards/new`} className="btn btn-secondary w-full sm:w-auto text-center">+ Add Card</Link>
+            <Link to={`/decks/${id}/study`} className="btn btn-primary w-full sm:w-auto text-center">Study {deck.due_count}</Link>
           </div>
         </div>
         {deck.description && <p style={{ color: "var(--text-secondary)", marginTop: "0.5rem" }}>{deck.description}</p>}
       </div>
 
-      <div className="card" style={{ marginBottom: "2rem", display: "flex", gap: "1rem" }}>
+      <div className="card flex flex-col sm:flex-row gap-4 mb-8">
         <input 
           type="text" 
           className="form-control" 
@@ -135,7 +135,7 @@ export default function DeckDetail() {
           onChange={(e) => setSearchTerm(e.target.value)}
           style={{ flex: 1 }}
         />
-        <select className="form-control" value={box} onChange={handleBoxChange} style={{ width: "150px" }}>
+        <select className="form-control sm:w-48" value={box} onChange={handleBoxChange}>
           <option value="">Box: All</option>
           {[1, 2, 3, 4, 5].map(b => <option key={b} value={b}>Box {b}</option>)}
         </select>
@@ -150,8 +150,8 @@ export default function DeckDetail() {
               onAction={!searchTerm && !box ? () => window.location.href = `/decks/${id}/cards/new` : null}
             />
           ) : (
-            <div className="card" style={{ padding: 0, overflow: "hidden" }}>
-              <table style={{ width: "100%", borderCollapse: "collapse" }}>
+            <div className="card overflow-x-auto p-0">
+              <table style={{ width: "100%", borderCollapse: "collapse", minWidth: "600px" }}>
                 <thead>
                   <tr style={{ backgroundColor: "var(--bg-tertiary)", borderBottom: "1px solid var(--border-color)", textAlign: "left" }}>
                     <th style={{ padding: "1rem" }}>Front</th>

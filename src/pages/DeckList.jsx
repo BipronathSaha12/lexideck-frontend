@@ -97,11 +97,11 @@ export default function DeckList() {
   return (
     <div className="container">
       <div className="page-header">
-        <h2>Your Decks</h2>
-        <Link to="/decks/new" className="btn btn-primary">+ New Deck</Link>
+        <h1 style={{ fontSize: "1.5rem", fontWeight: "bold" }}>Your Decks</h1>
+        <Link to="/decks/new" className="btn btn-primary w-full sm:w-auto text-center">+ New Deck</Link>
       </div>
 
-      <div className="card" style={{ marginBottom: "2rem", display: "flex", gap: "1rem" }}>
+      <div className="card flex flex-col sm:flex-row gap-4 mb-8">
         <input 
           type="text" 
           className="form-control" 
@@ -110,7 +110,7 @@ export default function DeckList() {
           onChange={(e) => setSearchTerm(e.target.value)}
           style={{ flex: 1 }}
         />
-        <select className="form-control" value={subject} onChange={handleSubjectChange} style={{ width: "200px" }}>
+        <select className="form-control sm:w-48" value={subject} onChange={handleSubjectChange}>
           <option value="">All subjects</option>
           <option value="PROGRAMMING">Programming</option>
           <option value="LANGUAGE">Language</option>
@@ -125,19 +125,19 @@ export default function DeckList() {
           {data.results.length === 0 ? (
             <EmptyState message="No decks found matching this criteria." />
           ) : (
-            <div className="grid grid-cols-1">
+            <div className="grid grid-cols-1 gap-4">
               {data.results.map(deck => (
-                <div key={deck.id} className="card" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <div key={deck.id} className="card flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                   <div>
                     <h3 style={{ margin: "0 0 0.5rem 0" }}><Link to={`/decks/${deck.id}`}>{deck.title}</Link></h3>
                     <div style={{ color: "var(--text-secondary)", fontSize: "0.875rem" }}>
                       {deck.subject} &bull; {deck.card_count} cards &bull; {deck.due_count} due
                     </div>
                   </div>
-                  <div style={{ display: "flex", gap: "0.5rem" }}>
-                    <Link to={`/decks/${deck.id}/study`} className="btn btn-primary">Study</Link>
-                    <Link to={`/decks/${deck.id}/edit`} className="btn btn-secondary">Edit</Link>
-                    <button onClick={() => setDeleteTarget(deck)} className="btn btn-danger">Delete</button>
+                  <div className="flex flex-wrap sm:flex-nowrap gap-2 w-full sm:w-auto">
+                    <Link to={`/decks/${deck.id}/study`} className="btn btn-primary flex-1 text-center">Study</Link>
+                    <Link to={`/decks/${deck.id}/edit`} className="btn btn-secondary flex-1 text-center">Edit</Link>
+                    <button onClick={() => setDeleteTarget(deck)} className="btn btn-danger flex-1">Delete</button>
                   </div>
                 </div>
               ))}

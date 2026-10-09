@@ -96,11 +96,11 @@ export default function CardForm() {
             {errors.hint && <span className="form-error">{errors.hint[0]}</span>}
           </div>
 
-          <div style={{ display: "flex", gap: "1rem" }}>
-            <button type="submit" className="btn btn-primary" disabled={saving}>
+          <div className="flex flex-col sm:flex-row gap-4">
+            <button type="submit" className="btn btn-primary w-full sm:w-auto" disabled={saving}>
               {saving ? "Saving..." : (isEdit ? "Save Card" : "Save and add another")}
             </button>
-            <button type="button" className="btn btn-secondary" onClick={() => navigate(isEdit ? -1 : `/decks/${deckId}`)} disabled={saving}>
+            <button type="button" className="btn btn-secondary w-full sm:w-auto" onClick={() => navigate(isEdit ? -1 : `/decks/${deckId}`)} disabled={saving}>
               {isEdit ? "Cancel" : "Done"}
             </button>
           </div>

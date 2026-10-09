@@ -156,8 +156,8 @@ export default function Study() {
               <div style={{ position: "absolute", bottom: "1rem", left: "1rem" }}>
                 <span className={`badge badge-box-${card.box}`}>Box {card.box}</span>
               </div>
-              <div style={{ position: "absolute", bottom: "1.5rem" }}>
-                <button onClick={() => setFlipped(true)} className="btn btn-primary">Show answer (Space)</button>
+              <div className="absolute bottom-6 left-0 w-full px-8">
+                <button onClick={() => setFlipped(true)} className="btn btn-primary w-full">Show answer (Space)</button>
               </div>
             </div>
 
@@ -170,9 +170,9 @@ export default function Study() {
                 {card.back}
               </div>
               
-              <div style={{ display: "flex", gap: "1rem", position: "absolute", bottom: "1.5rem" }}>
-                <button onClick={() => answer(false)} className="btn btn-danger" disabled={saving}>Missed (1)</button>
-                <button onClick={() => answer(true)} className="btn btn-primary" style={{ backgroundColor: "var(--success-color)" }} disabled={saving}>Got it (2)</button>
+              <div className="flex flex-col sm:flex-row gap-4 absolute bottom-6 left-0 w-full px-8">
+                <button onClick={() => answer(false)} className="btn btn-danger flex-1" disabled={saving}>Missed (1)</button>
+                <button onClick={() => answer(true)} className="btn btn-primary flex-1" style={{ backgroundColor: "var(--success-color)" }} disabled={saving}>Got it (2)</button>
               </div>
             </div>
 
