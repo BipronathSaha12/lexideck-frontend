@@ -2,6 +2,8 @@
 
 LexiDeck is a spaced-repetition flashcard application tailored for IELTS Academic Vocabulary. This repository contains the React frontend application.
 
+🔗 **Backend API Repository**: [lexideck-backend](https://github.com/BipronathSaha12/lexideck-backend)
+
 ## Design Direction
 **Dark Developer** - The app utilizes near-black surfaces (`#0f172a`, `#1e293b`), a single bright accent color (`#3b82f6` blue), monospace numbers, and compact modern grid layouts. The aesthetic aims to be clean, fast, and distraction-free for optimal study focus.
 
