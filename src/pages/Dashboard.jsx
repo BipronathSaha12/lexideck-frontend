@@ -119,6 +119,34 @@ export default function Dashboard() {
         )}
       </div>
 
+      {/* Heatmap (Study Activity) */}
+      <div className="card" style={{ marginBottom: "2rem" }}>
+        <h3 style={{ marginBottom: "1rem" }}>Activity Heatmap (Last 30 Days)</h3>
+        {stats.heatmap && (
+          <div className="flex gap-1 flex-wrap">
+            {Array.from({ length: 30 }).map((_, i) => {
+              const d = new Date();
+              d.setDate(d.getDate() - (29 - i));
+              const dateString = d.toISOString().split('T')[0];
+              const count = stats.heatmap[dateString] || 0;
+              
+              let colorClass = "bg-bgTertiary";
+              if (count > 0 && count <= 10) colorClass = "bg-accent/40";
+              else if (count > 10 && count <= 30) colorClass = "bg-accent/70";
+              else if (count > 30) colorClass = "bg-accent";
+
+              return (
+                <div 
+                  key={dateString} 
+                  title={`${dateString}: ${count} reviews`}
+                  className={`w-5 h-5 rounded-sm ${colorClass} cursor-help transition-opacity hover:opacity-80`}
+                ></div>
+              );
+            })}
+          </div>
+        )}
+      </div>
+
       {/* Ready to Study */}
       <div className="page-header" style={{ borderBottom: "none", marginBottom: "1rem" }}>
         <h3>Ready to study</h3>
