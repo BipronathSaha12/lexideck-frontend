@@ -153,7 +153,7 @@ export default function Study() {
                   Hint: {card.hint}
                 </div>
               )}
-              <div style={{ position: "absolute", bottom: "1rem", left: "1rem" }}>
+              <div className="absolute top-6 right-6">
                 <span className={`badge badge-box-${card.box}`}>Box {card.box}</span>
               </div>
               <div className="absolute bottom-6 left-0 w-full px-8">
