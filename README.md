@@ -61,13 +61,6 @@ The entire UI is fluid and fully responsive down to **300px** screen widths. It 
 | `/cards/:id/edit` | Protected | Edit Card Form |
 | `/decks/:id/study` | Protected | Interactive Study Flashcard Screen |
 
-## Completed Optional (Part B) Features
-- **O-7**: Swagger / ReDoc with `drf-spectacular`
-- **O-8**: `python manage.py seed_demo` script for instant populated test data
-- **O-10**: Keyboard-driven study support (Space to flip, 1 for Missed, 2 for Got It, Escape to exit) + 3D CSS Card Flips
-- **O-11**: GitHub-style Study Activity Heatmap visualizing the last 30 days of study logs.
-- **O-13**: Filters in the URL with `useSearchParams` and 400ms debounce on search boxes
-- **Accessibility**: 100% Lighthouse/aXe WCAG 2.1 compliance (color contrast, semantic HTML, and correct heading hierarchies).
 
 ## What I would add with more time
 - Mobile swipe gestures for the study screen.
