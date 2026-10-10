@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams, Link, useSearchParams, useNavigate } from "react-router-dom";
-import { getDeck } from "../api/decks";
+import { getDeck, importCsv } from "../api/decks";
 import { listCards, deleteCard } from "../api/cards";
 import Loader from "../components/Loader";
 import ErrorState from "../components/ErrorState";
 import EmptyState from "../components/EmptyState";
 import ConfirmModal from "../components/ConfirmModal";
+import { toast } from "react-hot-toast";
 
 function BoxBadge({ box }) {
   return <span className={`badge badge-box-${box}`}>Box {box}</span>;
@@ -18,6 +19,7 @@ export default function DeckDetail() {
   
   const [deck, setDeck] = useState(null);
   const [cards, setCards] = useState({ count: 0, results: [] });
+  const [isImporting, setIsImporting] = useState(false);
   
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -105,6 +107,27 @@ export default function DeckDetail() {
     }
   };
 
+  const handleFileUpload = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    setIsImporting(true);
+    try {
+      const res = await importCsv(id, file);
+      toast.success(`Imported ${res.imported} cards successfully!`);
+      // Reload deck and cards
+      const params = { deck: id, page: 1 };
+      const [deckRes, cardsRes] = await Promise.all([getDeck(id), listCards(params)]);
+      setDeck(deckRes);
+      setCards(cardsRes);
+      setSearchParams(new URLSearchParams({ page: "1" }));
+    } catch (err) {
+      toast.error(err.response?.data?.error || "Failed to import CSV");
+    } finally {
+      setIsImporting(false);
+      e.target.value = null; // reset input
+    }
+  };
+
   const totalPages = Math.ceil(cards.count / 10);
 
   if (loading && !deck) return <div className="container"><Loader /></div>;
@@ -118,7 +141,11 @@ export default function DeckDetail() {
             <Link to="/decks" style={{ color: "var(--text-secondary)" }}>&lt; Decks / </Link>
             {deck.title}
           </h1>
-          <div className="flex flex-col sm:flex-row gap-2 w-full md:w-auto">
+          <div className="flex flex-col sm:flex-row gap-2 w-full md:w-auto items-stretch">
+            <label className={`btn btn-secondary w-full sm:w-auto text-center cursor-pointer ${isImporting ? 'opacity-50 cursor-not-allowed' : ''}`}>
+              {isImporting ? 'Importing...' : 'Import CSV'}
+              <input type="file" accept=".csv" className="hidden" onChange={handleFileUpload} disabled={isImporting} />
+            </label>
             <Link to={`/decks/${id}/cards/new`} className="btn btn-secondary w-full sm:w-auto text-center">+ Add Card</Link>
             <Link to={`/decks/${id}/study`} className="btn btn-primary w-full sm:w-auto text-center">Study {deck.due_count}</Link>
           </div>

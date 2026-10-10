@@ -18,6 +18,8 @@ export default function Study() {
   const [flipped, setFlipped] = useState(false);
   const [saving, setSaving] = useState(false);
   const [score, setScore] = useState({ done: 0, correct: 0 });
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
 
   const fetchSession = useCallback(async () => {
     setLoading(true);
@@ -124,6 +126,35 @@ export default function Study() {
 
   const progress = ((index) / cards.length) * 100;
 
+  const handleTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (flipped) {
+      if (isLeftSwipe) {
+        answer(false); // Swipe left -> Missed
+      }
+      if (isRightSwipe) {
+        answer(true); // Swipe right -> Got it
+      }
+    } else {
+      if (isLeftSwipe || isRightSwipe) {
+        setFlipped(true); // Swipe on front flips the card
+      }
+    }
+  };
+
   return (
     <div className="container" style={{ maxWidth: "800px" }}>
       <div className="page-header" style={{ marginBottom: "1rem" }}>
@@ -140,7 +171,12 @@ export default function Study() {
       </div>
 
       <div style={{ display: "flex", justifyContent: "center" }}>
-        <div className={`flip-card ${flipped ? "flipped" : ""}`}>
+        <div 
+          className={`flip-card ${flipped ? "flipped" : ""}`}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
           <div className="flip-card-inner">
             
             {/* Front */}
