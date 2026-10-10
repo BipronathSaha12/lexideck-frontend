@@ -62,6 +62,6 @@ The entire UI is fluid and fully responsive down to **300px** screen widths. It 
 | `/decks/:id/study` | Protected | Interactive Study Flashcard Screen |
 
 
-## What I would add with more time
-- Mobile swipe gestures for the study screen.
-- A bulk CSV import feature (O-2) for quickly adding extensive IELTS wordlists.
+## Recently Added Features
+- **Mobile swipe gestures** for the study screen (Swipe to flip, swipe left for missed, swipe right for correct).
+- **Bulk CSV import feature** on the deck details page for quickly adding extensive IELTS wordlists.
